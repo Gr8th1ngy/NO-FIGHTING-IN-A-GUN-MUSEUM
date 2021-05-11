@@ -31,7 +31,7 @@ public class WeaponBehaviour : MonoBehaviour
         if (secondsSinceLastShot >= secondsBetweenShots)
         {
             // Activate spawner if firing
-            References.levelManager.alarmSounded = true;
+            References.alarmManager.SoundTheAlarm();
             audioSource.Play();
             References.screenshake.joltVector = transform.forward * kickAmount;
 
@@ -58,5 +58,6 @@ public class WeaponBehaviour : MonoBehaviour
         transform.rotation = References.thePlayer.transform.rotation;
         transform.SetParent(References.thePlayer.transform);
         References.thePlayer.SelectLatestWeapon();
+        References.alarmManager.RaiseAlertLevel();
     }
 }

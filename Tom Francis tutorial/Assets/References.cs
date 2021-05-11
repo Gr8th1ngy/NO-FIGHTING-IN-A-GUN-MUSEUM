@@ -7,9 +7,12 @@ public static class References
     public static LevelManager levelManager;
     public static PlayerBehaviour thePlayer;
     public static CanvasBehaviour theCanvas;
+    public static AlarmManager alarmManager;
+
     public static List<EnemySpawner> enemySpawners = new List<EnemySpawner>();
     public static List<EnemyBehaviour> allEnemies = new List<EnemyBehaviour>();
     public static List<Useable> useables = new List<Useable>();
+    public static List<PlinthBehaviour> plinths = new List<PlinthBehaviour>();
 
     public static float maxDistanceInALevel = 1000;
 

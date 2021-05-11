@@ -5,14 +5,19 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     public float speed;
+    public int score;
 
     public List<WeaponBehaviour> weapons = new List<WeaponBehaviour>();
     int selectedWeaponIndex;
 
+    private void Awake()
+    {
+        References.thePlayer = this;
+    }
+
     //// Start is called before the first frame update
     void Start()
     {
-        References.thePlayer = this;
         selectedWeaponIndex = 0;
     }
 
@@ -68,6 +73,12 @@ public class PlayerBehaviour : MonoBehaviour
                 nearestUseable.Use();
             }
         }
+    }
+
+    public void IncreaseScore(int amount)
+    {
+        score += amount;
+        References.theCanvas.scoreText.text = score.ToString();
     }
 
     public void SelectLatestWeapon()

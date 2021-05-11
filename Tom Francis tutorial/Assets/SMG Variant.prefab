@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1035039147958159567, guid: d91f7bcddc7ed7949a984d1ffbd7bb44,
+        type: 3}
+      propertyPath: displayName
+      value: SMG
+      objectReference: {fileID: 0}
     - target: {fileID: 4678698503539681224, guid: d91f7bcddc7ed7949a984d1ffbd7bb44,
         type: 3}
       propertyPath: m_RootOrder
@@ -65,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 4678698503539681225, guid: d91f7bcddc7ed7949a984d1ffbd7bb44,
         type: 3}
       propertyPath: m_Name
-      value: SMG
+      value: SMG Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4678698503539681231, guid: d91f7bcddc7ed7949a984d1ffbd7bb44,
         type: 3}

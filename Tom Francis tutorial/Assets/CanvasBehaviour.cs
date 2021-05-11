@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CanvasBehaviour : MonoBehaviour
 {
-    public SceneAsset firstScene;
     public GameObject mainMenu;
     public GameObject creditsMenu;
     public GameObject currentMenu;
+
+    public TextMeshProUGUI scoreText;
 
     // Awake happens before Start
     void Awake()
@@ -61,7 +63,7 @@ public class CanvasBehaviour : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene(firstScene.name);
+        SceneManager.LoadScene("Level 1");
         HideMenu();
     }
 

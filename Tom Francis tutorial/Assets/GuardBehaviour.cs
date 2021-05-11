@@ -47,7 +47,7 @@ public class GuardBehaviour : EnemyBehaviour
     // Update is called once per frame
     protected override void Update()
     {
-        if (References.levelManager.alarmSounded)
+        if (References.alarmManager.AlarmHasSounded())
         {
             alerted = true;
         }
@@ -93,7 +93,7 @@ public class GuardBehaviour : EnemyBehaviour
                         if (!Physics.Raycast(transform.position, toPlayer, toPlayer.magnitude, References.wallsLayer))
                         {
                             alerted = true;
-                            References.levelManager.alarmSounded = true;
+                            References.alarmManager.SoundTheAlarm();
                         }
                     }
                 }
@@ -104,9 +104,10 @@ public class GuardBehaviour : EnemyBehaviour
 
     public void KnockoutAttempt()
     {
-        if (!References.levelManager.alarmSounded)
+        if (!References.alarmManager.AlarmHasSounded())
         {
             GetComponent<HealthSystem>().KillMe();
+            References.alarmManager.RaiseAlertLevel();
         }
     }
 }

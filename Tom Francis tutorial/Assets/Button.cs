@@ -10,7 +10,6 @@ public class Button : MonoBehaviour
     RectTransform rectangle;
     Image image;
 
-    public SceneAsset firstScene;
     public UnityEvent eventToTrigger;
 
     // Start is called before the first frame update

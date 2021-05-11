@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2140293190684092666}
   - component: {fileID: -8348773265893716739}
   - component: {fileID: -1910435437918187046}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   canBeReused: 0
+  displayName: 
 --- !u!1 &3258153386857378455
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ GameObject:
   - component: {fileID: 3258153386857378459}
   - component: {fileID: 3258153386857378456}
   - component: {fileID: 3258153386857378457}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3258153387871597174}
   - component: {fileID: 3258153387871597177}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,6 +335,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3258153386684048642}
     m_Modifications:
+    - target: {fileID: 104811628062967153, guid: 105cde989ad5de2409ec2851994530df,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3474671690258109832, guid: 105cde989ad5de2409ec2851994530df,
         type: 3}
       propertyPath: m_RootOrder
@@ -393,6 +399,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SMG Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474671690258109833, guid: 105cde989ad5de2409ec2851994530df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474671691070052006, guid: 105cde989ad5de2409ec2851994530df,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 105cde989ad5de2409ec2851994530df, type: 3}
