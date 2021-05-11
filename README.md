@@ -9,3 +9,4 @@ Sounds from [Freesound.org](https://freesound.org/):
 * SMG Sound - JohanDeecke
 * Railgun Sound - deleted_user_1941307
 * Shotgun Sound - michorvath
+* Alarm Sound - lalks
