@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1419423655093069663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1419423655093069661}
+  - component: {fileID: 1419423655093069660}
+  m_Layer: 0
+  m_Name: Level Config
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1419423655093069661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419423655093069663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1419423655093069660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419423655093069663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf26a48fdd39a4f4692f08400fd813c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleChunkPrefabs:
+  - {fileID: 6182325909868675369, guid: fa8ac1da52cab3f448d3e14f9c4fef5f, type: 3}
+  - {fileID: 75296062413761342, guid: 5bd4b7cbaafb0a74888d121eff9a8e0e, type: 3}
+  - {fileID: 8629404021741971287, guid: 1a41d97a0e12908408480fafe09282ec, type: 3}
+  - {fileID: 4142379402546792872, guid: eb5d9b3aa414925409a872b8102511e6, type: 3}
+  weaponPrefabs:
+  - {fileID: 1897733872604723408, guid: 90dc60cf09da59841b0cbcf9e4854131, type: 3}
+  - {fileID: 3474671690258109833, guid: 105cde989ad5de2409ec2851994530df, type: 3}
+  - {fileID: 7196369660813403719, guid: de7576d9c0c936845bb231a9355ea3db, type: 3}
+  antiquePrefab: {fileID: 3966212076613875223, guid: b22b1dd2b1b22694e8e4ac7aad27a388,
+    type: 3}
+  guardPrefab: {fileID: 3258153386684048702, guid: f062855946c30914aba5b814ac023a58,
+    type: 3}
+  fractionOfPlinthsToHaveAntiques: 0.5
+  numberOfGuardsToCreate: 1
+  numberOfSpawnersToCreate: 1

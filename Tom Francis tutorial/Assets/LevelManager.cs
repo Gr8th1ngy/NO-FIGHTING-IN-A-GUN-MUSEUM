@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public bool alarmSounded;
+    public string firstLevelName;
     public float graceTimeAtEndOfLevel;
     public float secondsBeforeNextLevel;
     public float secondsBeforeDeathMenu;
@@ -22,8 +23,15 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        References.alarmManager.SetUpLevel(3);
+        SceneManager.LoadScene(firstLevelName);
         secondsBeforeNextLevel = graceTimeAtEndOfLevel;
+    }
+
+    public void StartNewGame()
+    {
+        Destroy(References.essentials.gameObject);
+        SceneManager.LoadScene("Startup");
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -32,11 +40,15 @@ public class LevelManager : MonoBehaviour
         // If all enemies are dead go to next level
         if (References.allEnemies.Count < 1)
         {
+            // grace period before level transition
             secondsBeforeNextLevel -= Time.deltaTime;
+
+            // stop alarm
+            References.alarmManager.StopTheAlarm();
 
             if (secondsBeforeNextLevel <= 0)
             {
-                SceneManager.LoadScene("Level 1");
+                SceneManager.LoadScene(References.levelGenerator.nextLevelName);
             }
         }
         else

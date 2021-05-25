@@ -13,6 +13,14 @@ public class LevelGenerator : MonoBehaviour
     public int numberOfGuardsToCreate;
     public int numberOfSpawnersToCreate;
 
+    public string nextLevelName;
+    public int alarmLevels;
+
+    private void Awake()
+    {
+        References.levelGenerator = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +91,8 @@ public class LevelGenerator : MonoBehaviour
             int randomIndex = Random.Range(0, References.enemySpawners.Count);
             Destroy(References.enemySpawners[randomIndex].gameObject);
         }
+
+        References.alarmManager.SetUpLevel(alarmLevels);
     }
 
     // Update is called once per frame

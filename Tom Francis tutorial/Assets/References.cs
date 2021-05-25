@@ -8,6 +8,8 @@ public static class References
     public static PlayerBehaviour thePlayer;
     public static CanvasBehaviour theCanvas;
     public static AlarmManager alarmManager;
+    public static Persistence essentials;
+    public static LevelGenerator levelGenerator;
 
     public static List<EnemySpawner> enemySpawners = new List<EnemySpawner>();
     public static List<EnemyBehaviour> allEnemies = new List<EnemyBehaviour>();
