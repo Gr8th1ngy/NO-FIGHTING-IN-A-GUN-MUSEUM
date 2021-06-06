@@ -21,7 +21,7 @@ public static class References
     public static LayerMask wallsLayer = LayerMask.GetMask("Walls");
     public static LayerMask enemiesLayer = LayerMask.GetMask("Enemies");
 
-    public static Screenshake screenshake;
+    public static CameraTools cameraTools;
 
     public static List<NavPoint> navPoints = new List<NavPoint>();
 }

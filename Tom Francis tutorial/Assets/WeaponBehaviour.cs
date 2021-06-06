@@ -35,7 +35,7 @@ public class WeaponBehaviour : MonoBehaviour
             // Activate spawner if firing
             References.alarmManager.SoundTheAlarm();
             audioSource.Play();
-            References.screenshake.joltVector = transform.forward * kickAmount;
+            References.cameraTools.joltVector = transform.forward * kickAmount;
 
             for (int i = 0; i < numberOfProjectiles; i++)
             {

@@ -6,6 +6,10 @@ public class Persistence : MonoBehaviour
 {
     private void Awake()
     {
+        if (References.essentials != null)
+        {
+            Destroy(References.essentials.gameObject);
+        }
         References.essentials = this;
         DontDestroyOnLoad(gameObject);
     }

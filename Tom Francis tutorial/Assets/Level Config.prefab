@@ -48,6 +48,8 @@ MonoBehaviour:
   - {fileID: 75296062413761342, guid: 5bd4b7cbaafb0a74888d121eff9a8e0e, type: 3}
   - {fileID: 8629404021741971287, guid: 1a41d97a0e12908408480fafe09282ec, type: 3}
   - {fileID: 4142379402546792872, guid: eb5d9b3aa414925409a872b8102511e6, type: 3}
+  widthInChunks: 3
+  lengthInChunks: 1
   weaponPrefabs:
   - {fileID: 1897733872604723408, guid: 90dc60cf09da59841b0cbcf9e4854131, type: 3}
   - {fileID: 3474671690258109833, guid: 105cde989ad5de2409ec2851994530df, type: 3}
@@ -59,3 +61,5 @@ MonoBehaviour:
   fractionOfPlinthsToHaveAntiques: 0.5
   numberOfGuardsToCreate: 1
   numberOfSpawnersToCreate: 1
+  nextLevelName: 
+  alarmLevels: 0

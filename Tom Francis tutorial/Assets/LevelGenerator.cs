@@ -5,6 +5,9 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> possibleChunkPrefabs;
+    public int widthInChunks;
+    public int lengthInChunks;
+
     public List<GameObject> weaponPrefabs;
     public GameObject antiquePrefab;
     public GameObject guardPrefab;
@@ -24,16 +27,17 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Randomly generate chunks
-        for (int i = 0; i < 3; i++)
+        for (int j = 0; j < lengthInChunks; j++)
         {
-            GameObject randomChunkType = possibleChunkPrefabs[Random.Range(0, possibleChunkPrefabs.Count)];
+            // Randomly generate chunks
+            for (int i = 0; i < widthInChunks; i++)
+            {
+                GameObject randomChunkType = possibleChunkPrefabs[Random.Range(0, possibleChunkPrefabs.Count)];
 
-            Vector3 spawnPosition = transform.position + new Vector3(i * 15, 0, 0);
+                Vector3 spawnPosition = transform.position + new Vector3(i * 15, 0, j * 30);
 
-            Instantiate(randomChunkType, spawnPosition, Quaternion.identity);
-
-            possibleChunkPrefabs.Remove(randomChunkType);
+                Instantiate(randomChunkType, spawnPosition, Quaternion.identity);
+            }
         }
 
         int numberOfThingsToPlace = References.plinths.Count;
