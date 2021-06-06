@@ -52,6 +52,7 @@ MonoBehaviour:
   accuracy: 1000
   numberOfProjectiles: 1
   kickAmount: 0
+  ammo: 20
 --- !u!82 &6800621300834808534
 AudioSource:
   m_ObjectHideFlags: 0
@@ -174,6 +175,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canBeReused: 0
+  displayName: 
 --- !u!1 &4678698505425167590
 GameObject:
   m_ObjectHideFlags: 0

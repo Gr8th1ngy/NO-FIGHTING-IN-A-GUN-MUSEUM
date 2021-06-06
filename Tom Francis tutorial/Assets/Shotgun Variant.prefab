@@ -74,6 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4678698503539681231, guid: d91f7bcddc7ed7949a984d1ffbd7bb44,
         type: 3}
+      propertyPath: ammo
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678698503539681231, guid: d91f7bcddc7ed7949a984d1ffbd7bb44,
+        type: 3}
       propertyPath: accuracy
       value: 5
       objectReference: {fileID: 0}
@@ -90,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 4678698503539681231, guid: d91f7bcddc7ed7949a984d1ffbd7bb44,
         type: 3}
       propertyPath: secondsBetweenShots
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4678698505425167588, guid: d91f7bcddc7ed7949a984d1ffbd7bb44,
         type: 3}

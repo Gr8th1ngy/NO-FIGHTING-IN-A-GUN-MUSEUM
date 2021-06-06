@@ -6,9 +6,9 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public float speed;
     public int score;
-
-    public List<WeaponBehaviour> weapons = new List<WeaponBehaviour>();
-    int selectedWeaponIndex;
+    
+    public WeaponBehaviour mainWeapon;
+    public WeaponBehaviour secondaryWeapon;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class PlayerBehaviour : MonoBehaviour
     //// Start is called before the first frame update
     void Start()
     {
-        selectedWeaponIndex = 0;
+
     }
 
     // Update is called once per frame
@@ -41,15 +41,15 @@ public class PlayerBehaviour : MonoBehaviour
         transform.LookAt(lookAtPosition);
 
         // Click to fire
-        if (weapons.Count > 0 && Input.GetButton("Fire1"))
+        if (mainWeapon != null && Input.GetButton("Fire1"))
         {
-            weapons[selectedWeaponIndex].Fire(cursorPosition);
+            mainWeapon.Fire(cursorPosition);
         }
 
         // Change weapon
         if (Input.GetButtonDown("Fire2"))
         {
-            ChangeWeaponIndex(selectedWeaponIndex + 1);
+            SwitchWeapon();
         }
 
         // Use the nearest usable
@@ -81,30 +81,48 @@ public class PlayerBehaviour : MonoBehaviour
         References.theCanvas.scoreText.text = score.ToString();
     }
 
-    public void SelectLatestWeapon()
+    public void PickUpWeapon(WeaponBehaviour weapon)
     {
-        ChangeWeaponIndex(weapons.Count - 1);
+        if (mainWeapon == null)
+        {
+            // use new weapon if we don't have any weapon
+            SetAsMainWeapon(weapon);
+        }
+        else if (secondaryWeapon == null)
+        {
+            // put into the secondary slot if it's empty
+            SetAsSecondaryWeapon(weapon);
+        }
+        else
+        {
+            // full inventory
+            // drop current main weapon and equip new weapon as main
+            mainWeapon.Drop();
+            SetAsMainWeapon(weapon);
+        }
     }
 
-    private void ChangeWeaponIndex(int index)
+    void SetAsMainWeapon(WeaponBehaviour weapon)
     {
-        selectedWeaponIndex = index;
-        if (selectedWeaponIndex >= weapons.Count)
-        {
-            selectedWeaponIndex = 0;
-        }
+        mainWeapon = weapon;
+        References.theCanvas.mainWeaponPanel.AssignWeapon(weapon);
+        weapon.gameObject.SetActive(true);
+    }
 
-        // Change weapon look
-        for (int i = 0; i < weapons.Count; i++)
+    void SetAsSecondaryWeapon(WeaponBehaviour weapon)
+    {
+        secondaryWeapon = weapon;
+        References.theCanvas.secondaryWeaponPanel.AssignWeapon(weapon);
+        weapon.gameObject.SetActive(false);
+    }
+
+    private void SwitchWeapon()
+    {
+        if (mainWeapon != null && secondaryWeapon != null)
         {
-            if (i == selectedWeaponIndex)
-            {
-                weapons[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                weapons[i].gameObject.SetActive(false);
-            }
+            WeaponBehaviour oldMainWeapon = mainWeapon;
+            SetAsMainWeapon(secondaryWeapon);
+            SetAsSecondaryWeapon(oldMainWeapon);
         }
     }
 }

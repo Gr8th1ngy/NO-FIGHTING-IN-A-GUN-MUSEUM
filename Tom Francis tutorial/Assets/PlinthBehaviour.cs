@@ -35,6 +35,12 @@ public class PlinthBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (myUseable != null && !myUseable.enabled)
+        {
+            // if usable is not enabled, player picked it up
+            myUseable = null;
+        }
+
         if (secondsToLock > 0 && References.alarmManager.AlarmHasSounded())
         {
             secondsToLock -= Time.deltaTime;

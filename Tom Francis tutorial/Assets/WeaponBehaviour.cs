@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeaponBehaviour : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class WeaponBehaviour : MonoBehaviour
     public float accuracy;
     public int numberOfProjectiles;
     public float kickAmount;
+    public int ammo;
 
     float secondsSinceLastShot;
     AudioSource audioSource;
@@ -28,7 +30,7 @@ public class WeaponBehaviour : MonoBehaviour
 
     public void Fire(Vector3 targetPosition)
     {
-        if (secondsSinceLastShot >= secondsBetweenShots)
+        if (secondsSinceLastShot >= secondsBetweenShots && ammo > 0)
         {
             // Activate spawner if firing
             References.alarmManager.SoundTheAlarm();
@@ -48,16 +50,24 @@ public class WeaponBehaviour : MonoBehaviour
                 bullet.transform.LookAt(inaccuratePosition);
                 secondsSinceLastShot = 0;
             }
+
+            ammo--;
         }
     }
 
     public void PickedUpByPlayer()
     {
-        References.thePlayer.weapons.Add(this);
         transform.position = References.thePlayer.transform.position;
         transform.rotation = References.thePlayer.transform.rotation;
         transform.SetParent(References.thePlayer.transform);
-        References.thePlayer.SelectLatestWeapon();
         References.alarmManager.RaiseAlertLevel();
+        References.thePlayer.PickUpWeapon(this);
+    }
+
+    public void Drop()
+    {
+        transform.parent = null;
+        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+        GetComponent<Useable>().enabled = true;
     }
 }
